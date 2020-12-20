@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebApplication1.Concrete.Films>
+
+@{
+    ViewBag.Title = "Films";
+}
+
+<h2>Films</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.film)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.main_director)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.budget)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.film)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.main_director)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.budget)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.film_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.film_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.film_id })
+        </td>
+    </tr>
+}
+
+</table>
